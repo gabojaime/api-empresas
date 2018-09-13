@@ -1,0 +1,28 @@
+{
+  "name": "api-empresas",
+  "version": "1.0.0",
+  "description": "api RESTful con node js, express, mongo db gestion de empresas",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabojaime/api-empresas.git"
+  },
+  "author": "Gabriel Jaime",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabojaime/api-empresas/issues"
+  },
+  "homepage": "https://github.com/gabojaime/api-empresas#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
