@@ -68,8 +68,6 @@ function storeEmpresa(req, res) {
     })
 }
 
-
-
 module.exports = {
     getEmpresas,
     getEmpresa,
