@@ -1,36 +1,17 @@
 'use strict'
 
-const express = require('express')
-const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const app = require('./app')
+const config = require('./config')
 
-const app = express()
-const port = process.env.PORT || 3001
+//conexion con base de datos mongodb
+mongoose.connect(config.db, (err, res) => {
+    if (err) {
+        return console.log(`error al conectar a la base de datos: ${err}`)
+    }
+    console.log('conexion establecida')
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-//rutas crud para empresas 
-app.get('/api/empresas', (req, res) => {
-    res.status(200).send({ empresas: [] })
-})
-
-app.get('/api/empresas/:empresaId', (req, res) => {
-
-})
-
-app.post('/api/empresas', (req, res) => {
-    console.log(req.body)
-    res.status(200).send({ mensaje: 'Se han recibido los datos de empresa' })
-})
-
-app.put('/api/empresas/:empresaId', (req, res) => {
-
-})
-
-app.delete('/api/empresas/:empresaId', (req, res) => {
-
-})
-
-app.listen(port, () => {
-    console.log(`api rest corriendo en puerto ${port}`)
+    app.listen(config.port, () => {
+        console.log(`api rest corriendo en puerto ${config.port}`)
+    })
 })
