@@ -7,15 +7,15 @@ const auth = require('../middleware/auth')
 const api = express.Router()
 
 //rutas crud para empresas 
-api.get('/empresas', empresaController.getEmpresas)
+api.get('/empresas', auth, empresaController.getEmpresas)
 
-api.get('/empresas/:empresaId', empresaController.getEmpresa)
+api.get('/empresas/:empresaId', auth, empresaController.getEmpresa)
 
-api.post('/empresas', empresaController.storeEmpresa)
+api.post('/empresas', auth, empresaController.storeEmpresa)
 
-api.put('/empresas/:empresaId', empresaController.updateEmpresa)
+api.put('/empresas/:empresaId', auth, empresaController.updateEmpresa)
 
-api.delete('/empresas/:empresaId', empresaController.deleteEmpresa)
+api.delete('/empresas/:empresaId', auth, empresaController.deleteEmpresa)
 
 //rutas para usuarios
 api.post('/signup', usuarioController.signUp)

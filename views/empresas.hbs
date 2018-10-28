@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    let empresasList = document.createElement('ul')
+
+    const myheaders = new Headers()
+
+    myheaders.append('authorization', `Bearer ${ localStorage.token }`)
+    fetch('/api/empresas', {
+        method: 'GET',
+        headers: myheaders
+    })
+    .then(response => response.json())
+    .then(data => {
+        data.empresas.map(empresa => {
+            let text = document.createTextNode(empresa.razon_social)
+            let ele = document.createElement('li')
+            ele.appendChild(text)
+            empresasList.appendChild(ele)
+        })
+
+        document.body.appendChild(empresasList)
+    })
+</script>
